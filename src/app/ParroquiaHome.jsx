@@ -1,7 +1,7 @@
 "use client";import React, { useState } from "react";
 import {
   Church, Calendar, Droplet, Phone, Clock, MapPin, ChevronDown,
-  Menu, X, Users, Heart, MessageCircle, Bell, ChevronRight,
+  Menu, X, Users, Heart, MessageCircle, Bell, ChevronRight, Cross, 
 } from "lucide-react";
 
 const FONT_IMPORT = `@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap');`;
@@ -10,7 +10,7 @@ const TOKENS = {
   ink: "#26344a",
   paper: "#efeae0",
   paperDeep: "#e2dbc9",
-  oxblood: "#8c3b2e",
+  oxblood: "#c37419",
   gold: "#c9a227",
   green: "#3f5142",
   whatsapp: "#3f6b4a",
@@ -28,7 +28,7 @@ const NAV = [
 const TAREAS = [
   { icon: Clock, label: "Horarios de misa", target: "hoy" },
   { icon: Users, label: "Confesiones", target: "hoy" },
-  { icon: Droplet, label: "Bautismo", target: "sacramentos" },
+  { icon: Cross, label: "Bautismo", target: "sacramentos" },
   { icon: Calendar, label: "Eventos", target: "hoy" },
   { icon: Phone, label: "Contacto", target: "contacto" },
 ];
@@ -115,7 +115,7 @@ export default function ParroquiaBorradorV2() {
         <div style={{ maxWidth: 1040, margin: "0 auto", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <Church size={22} color={TOKENS.oxblood} />
-            <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 600, fontSize: 19 }}>Parroquia San José</span>
+            <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 600, fontSize: 19 }}>Parroquia Santa Clara</span>
           </div>
 
           <nav style={{ display: "flex", gap: 26 }} className="desktop-nav">
