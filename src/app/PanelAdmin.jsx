@@ -303,12 +303,26 @@ export default function PanelAdminBorrador() {
   const [seccion, setSeccion] = useState("eventos");
 
   return (
-    <div style={{ display: "flex", minHeight: "100%", background: T.bg, fontFamily: "'Public Sans', sans-serif", color: T.ink }}>
+    <div className="admin-shell" style={{ background: T.bg, fontFamily: "'Public Sans', sans-serif", color: T.ink }}>
       <style>{FONT_IMPORT}</style>
+      <style>{`
+        .admin-shell { display: flex; min-height: 100%; }
+        .admin-sidebar { width: 220px; flex-shrink: 0; }
+        .admin-main { flex: 1; max-width: 760px; box-sizing: border-box; }
+        @media (max-width: 720px) {
+          .admin-shell { flex-direction: column; }
+          .admin-sidebar { width: 100%; box-sizing: border-box; border-right: none !important; border-bottom: 1px solid ${T.border}; padding: 14px !important; }
+          .admin-sidebar-brand { padding-bottom: 12px !important; }
+          .admin-sidebar nav { flex-direction: row !important; overflow-x: auto; gap: 6px !important; -webkit-overflow-scrolling: touch; }
+          .admin-sidebar nav button { white-space: nowrap; flex-shrink: 0; }
+          .admin-sidebar-logout { display: none; }
+          .admin-main { padding: 20px !important; max-width: 100% !important; }
+        }
+      `}</style>
 
       {/* Sidebar */}
-      <aside style={{ width: 220, background: T.panel, borderRight: `1px solid ${T.border}`, padding: "20px 14px", flexShrink: 0 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "0 8px 24px", fontWeight: 700, fontSize: 15 }}>
+      <aside className="admin-sidebar" style={{ background: T.panel, borderRight: `1px solid ${T.border}`, padding: "20px 14px" }}>
+        <div className="admin-sidebar-brand" style={{ display: "flex", alignItems: "center", gap: 8, padding: "0 8px 24px", fontWeight: 700, fontSize: 15 }}>
           <Church size={18} color={T.accent} /> Panel · San José
         </div>
         <nav style={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -332,7 +346,7 @@ export default function PanelAdminBorrador() {
             );
           })}
         </nav>
-        <div style={{ borderTop: `1px solid ${T.border}`, marginTop: 20, paddingTop: 14 }}>
+        <div className="admin-sidebar-logout" style={{ borderTop: `1px solid ${T.border}`, marginTop: 20, paddingTop: 14 }}>
           <button style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "none", border: "none", color: T.muted, fontSize: 14, cursor: "pointer", width: "100%", textAlign: "left", fontFamily: "'Public Sans', sans-serif" }}>
             <LogOut size={16} /> Cerrar sesión
           </button>
@@ -340,7 +354,7 @@ export default function PanelAdminBorrador() {
       </aside>
 
       {/* Contenido */}
-      <main style={{ flex: 1, padding: "28px 32px", maxWidth: 760 }}>
+      <main className="admin-main" style={{ padding: "28px 32px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: T.muted, marginBottom: 20, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>
           <LayoutGrid size={13} /> Borrador — los cambios no se guardan de verdad todavía
         </div>
