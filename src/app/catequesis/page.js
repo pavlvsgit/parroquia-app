@@ -25,7 +25,7 @@ export default function CatequesisPage() {
             fontWeight: 600,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: TOKENS.oxblood,
+            color: TOKENS.oxbloodDeep,
             marginBottom: 8,
           }}
         >
@@ -74,7 +74,7 @@ export default function CatequesisPage() {
                       fontWeight: 700,
                       letterSpacing: "0.06em",
                       textTransform: "uppercase",
-                      color: TOKENS.oxblood,
+                      color: TOKENS.oxbloodDeep,
                       marginBottom: 4,
                     }}
                   >

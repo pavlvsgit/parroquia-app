@@ -11,6 +11,11 @@ const TOKENS = {
   paper: "#efeae0",
   paperDeep: "#e2dbc9",
   oxblood: "#c37419",
+  // Darkened oxblood for text — #c37419 is only 3.00:1 against `paper`,
+  // below the 4.5:1 WCAG AA minimum for normal-weight text. Use this
+  // instead of `oxblood` whenever the accent colors text rather than an
+  // icon or a background chip. Kept in sync with catequesis/theme.js.
+  oxbloodDeep: "#8a4f12",
   gold: "#c9a227",
   green: "#3f5142",
   whatsapp: "#3f6b4a",
@@ -66,7 +71,7 @@ function Section({ id, children, style }) {
 
 function Eyebrow({ children, color }) {
   return (
-    <div style={{ fontFamily: "'Public Sans', sans-serif", fontSize: 13, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: color || TOKENS.oxblood, marginBottom: 10 }}>
+    <div style={{ fontFamily: "'Public Sans', sans-serif", fontSize: 13, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: color || TOKENS.oxbloodDeep, marginBottom: 10 }}>
       {children}
     </div>
   );
@@ -83,7 +88,7 @@ function SectionTitle({ children }) {
 function AgendaRow({ hora, titulo, lugar }) {
   return (
     <div style={{ display: "flex", gap: 16, alignItems: "center", padding: "12px 0", borderBottom: `1px solid ${TOKENS.paperDeep}` }}>
-      <div style={{ fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 17, color: TOKENS.oxblood, minWidth: 56 }}>{hora}</div>
+      <div style={{ fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 17, color: TOKENS.oxbloodDeep, minWidth: 56 }}>{hora}</div>
       <div>
         <div style={{ fontWeight: 600, fontSize: 15 }}>{titulo}</div>
         <div style={{ fontSize: 13, color: "#6b7280" }}>{lugar}</div>
@@ -196,7 +201,7 @@ export default function ParroquiaBorradorV2() {
         </div>
         {AGENDA.proximos.map((e, i) => (
           <div key={i} style={{ display: "flex", gap: 16, alignItems: "center", padding: "12px 0" }}>
-            <div style={{ fontSize: 13, color: TOKENS.oxblood, fontWeight: 600, minWidth: 100 }}>{e.dia}</div>
+            <div style={{ fontSize: 13, color: TOKENS.oxbloodDeep, fontWeight: 600, minWidth: 100 }}>{e.dia}</div>
             <div>
               <div style={{ fontWeight: 600, fontSize: 15 }}>{e.titulo}</div>
               <div style={{ fontSize: 13, color: "#6b7280" }}>{e.lugar}</div>
@@ -207,7 +212,7 @@ export default function ParroquiaBorradorV2() {
         <button
           style={{
             marginTop: 20, background: "none", border: "none", cursor: "pointer",
-            fontSize: 13, color: TOKENS.oxblood, fontWeight: 600, padding: 0,
+            fontSize: 13, color: TOKENS.oxbloodDeep, fontWeight: 600, padding: 0,
             display: "flex", alignItems: "center", gap: 6,
           }}
         >
@@ -271,7 +276,7 @@ export default function ParroquiaBorradorV2() {
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           {AVISOS.map((n, i) => (
             <div key={i} style={{ borderBottom: i < AVISOS.length - 1 ? `1px solid ${TOKENS.paperDeep}` : "none", paddingBottom: 18 }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: TOKENS.oxblood, marginBottom: 4 }}>{n.fecha}</div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: TOKENS.oxbloodDeep, marginBottom: 4 }}>{n.fecha}</div>
               <div style={{ fontWeight: 600, fontSize: 16, marginBottom: 4, fontFamily: "'Fraunces', serif" }}>{n.titulo}</div>
               <div style={{ fontSize: 14, color: "#4a5568", lineHeight: 1.5 }}>{n.resumen}</div>
             </div>

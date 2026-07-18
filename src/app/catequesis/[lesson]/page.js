@@ -48,7 +48,7 @@ export default async function LeccionEstudiantePage({ params }) {
                     fontWeight: 600,
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
-                    color: TOKENS.oxblood,
+                    color: TOKENS.oxbloodDeep,
                   }}
                 >
                   Palabra de Dios
