@@ -6,7 +6,11 @@ import LessonHeader from "../../LessonHeader";
 import LessonTags from "../../LessonTags";
 import ScriptureCitation from "../../ScriptureCitation";
 import MarkdownBlock from "../../MarkdownBlock";
+import CatequistaSection from "../../CatequistaSection";
+import SectionNav from "../../SectionNav";
+import DesarrolloSteps from "../../DesarrolloSteps";
 import { loadLessonPage } from "../../data";
+import { parseCatequistaSections } from "../../parseCatequistaSections";
 
 export default async function LeccionCatequistaPage({ params }) {
   const { lesson: slug } = await params;
@@ -14,6 +18,7 @@ export default async function LeccionCatequistaPage({ params }) {
   if (!data) notFound();
 
   const { lesson, citas, totalLessons } = data;
+  const { intro, sections } = parseCatequistaSections(lesson.paraCatequistas);
 
   return (
     <div
@@ -72,8 +77,19 @@ export default async function LeccionCatequistaPage({ params }) {
             </section>
           )}
 
+          <SectionNav sections={sections} />
+
           <div style={{ marginTop: 8 }}>
-            <MarkdownBlock size="dense">{lesson.paraCatequistas}</MarkdownBlock>
+            {intro && <MarkdownBlock size="dense">{intro}</MarkdownBlock>}
+            {sections.map((section) => (
+              <CatequistaSection key={section.slug} slug={section.slug} title={section.title}>
+                {/^desarrollo/i.test(section.title) ? (
+                  <DesarrolloSteps body={section.body} />
+                ) : (
+                  <MarkdownBlock size="dense">{section.body}</MarkdownBlock>
+                )}
+              </CatequistaSection>
+            ))}
           </div>
 
           <p style={{ marginTop: 20 }}>

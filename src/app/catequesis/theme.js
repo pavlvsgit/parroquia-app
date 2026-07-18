@@ -5,6 +5,11 @@ export const TOKENS = {
   paper: "#efeae0",
   paperDeep: "#e2dbc9",
   oxblood: "#c37419",
+  // Darkened oxblood used for text (headings, labels) — #c37419 is only
+  // 3.00:1 against `paper`, below the 4.5:1 WCAG AA minimum for normal-weight
+  // text. This shade holds >=4.5:1 against paper, paperDeep, and the
+  // low-alpha oxblood tint bands used in the catequista view.
+  oxbloodDeep: "#8a4f12",
   gold: "#c9a227",
   green: "#3f5142",
 };
