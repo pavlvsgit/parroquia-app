@@ -36,6 +36,19 @@ yarn-error.log*
 # vercel
 .vercel
 
+# extracted EPUB content (copyrighted source text, not for version control)
+/.cache/
+
+# raw lecture transcripts (copyrighted source material — the derived work in
+# content/catequesis/ is what gets published, not the transcripts themselves)
+/transcripts/
+
+# graphify knowledge-graph output (generated/regeneratable, not source)
+/graphify-out/
+
+# local Claude Code tool config (personal machine paths, not portable)
+/.claude/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
