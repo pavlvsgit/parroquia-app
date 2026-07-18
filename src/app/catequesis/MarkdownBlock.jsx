@@ -40,7 +40,7 @@ export default function MarkdownBlock({ children, size = "normal" }) {
             {children}
           </p>
         ),
-        strong: ({ children }) => <strong style={{ color: TOKENS.oxblood }}>{children}</strong>,
+        strong: ({ children }) => <strong style={{ color: TOKENS.oxbloodDeep }}>{children}</strong>,
         em: ({ children }) => <em>{children}</em>,
         ul: ({ children }) => (
           <ul

@@ -66,7 +66,7 @@ export default function LessonHeader({ lesson, totalLessons, className }) {
             fontWeight: 600,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: TOKENS.oxblood,
+            color: TOKENS.oxbloodDeep,
             marginBottom: 8,
           }}
         >

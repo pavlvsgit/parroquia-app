@@ -51,7 +51,10 @@ export default async function LeccionCatequistaPage({ params }) {
 
       <main className="lesson-shell">
         <LessonHeader lesson={lesson} totalLessons={totalLessons} className="lesson-header" />
-        <LessonTags tags={lesson.tags} className="lesson-tags" />
+        <div className="lesson-sidebar">
+          <LessonTags tags={lesson.tags} />
+          <SectionNav sections={sections} variant="desktop" />
+        </div>
 
         <div className="lesson-main">
           {citas.length > 0 && (
@@ -65,7 +68,7 @@ export default async function LeccionCatequistaPage({ params }) {
                     fontWeight: 600,
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
-                    color: TOKENS.oxblood,
+                    color: TOKENS.oxbloodDeep,
                   }}
                 >
                   Citas bíblicas de la clase
@@ -77,7 +80,7 @@ export default async function LeccionCatequistaPage({ params }) {
             </section>
           )}
 
-          <SectionNav sections={sections} />
+          <SectionNav sections={sections} variant="mobile" />
 
           <div style={{ marginTop: 8 }}>
             {intro && <MarkdownBlock size="dense">{intro}</MarkdownBlock>}

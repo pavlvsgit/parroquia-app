@@ -45,7 +45,7 @@ export default function ScriptureCitation({ cita, showNote = false }) {
           fontWeight: 700,
           letterSpacing: "0.05em",
           textTransform: "uppercase",
-          color: TOKENS.oxblood,
+          color: TOKENS.oxbloodDeep,
           margin: 0,
         }}
       >

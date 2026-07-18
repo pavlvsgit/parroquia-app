@@ -33,7 +33,13 @@ export function lessonGridCss(mobileMaxWidth) {
     }
     .lesson-shell > .lesson-header { grid-area: header; }
     .lesson-shell > .lesson-tags { grid-area: tags; margin-top: 20px; }
+    .lesson-shell > .lesson-sidebar { grid-area: tags; margin-top: 20px; }
     .lesson-shell > .lesson-main { grid-area: main; }
+
+    /* Desktop TOC vs. mobile dropdown: same SectionNav component, two
+       mounted variants, CSS media queries pick which one paints (avoids
+       an SSR/client viewport-detection mismatch). */
+    .section-toc-desktop { display: none; }
 
     @media (min-width: 1024px) {
       .lesson-shell {
@@ -46,12 +52,20 @@ export function lessonGridCss(mobileMaxWidth) {
           "header tags"
           "main   tags";
       }
-      .lesson-shell > .lesson-tags {
+      .lesson-shell > .lesson-tags,
+      .lesson-shell > .lesson-sidebar {
         margin-top: 0;
         position: sticky;
         top: 32px;
         align-self: start;
       }
+      .lesson-shell > .lesson-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .section-toc-desktop { display: block; }
+      .section-toc-mobile { display: none; }
     }
   `;
 }
